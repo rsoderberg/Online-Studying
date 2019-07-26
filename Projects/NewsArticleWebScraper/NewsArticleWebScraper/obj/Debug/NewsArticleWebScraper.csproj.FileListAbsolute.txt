@@ -1,0 +1,14 @@
+C:\Users\rsoderberg\Desktop\Online Studying\Projects\NewsArticleWebScraper\NewsArticleWebScraper\bin\Debug\NewsArticleWebScraper.exe.config
+C:\Users\rsoderberg\Desktop\Online Studying\Projects\NewsArticleWebScraper\NewsArticleWebScraper\bin\Debug\NewsArticleWebScraper.exe
+C:\Users\rsoderberg\Desktop\Online Studying\Projects\NewsArticleWebScraper\NewsArticleWebScraper\bin\Debug\NewsArticleWebScraper.pdb
+C:\Users\rsoderberg\Desktop\Online Studying\Projects\NewsArticleWebScraper\NewsArticleWebScraper\bin\Debug\AngleSharp.dll
+C:\Users\rsoderberg\Desktop\Online Studying\Projects\NewsArticleWebScraper\NewsArticleWebScraper\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\rsoderberg\Desktop\Online Studying\Projects\NewsArticleWebScraper\NewsArticleWebScraper\bin\Debug\System.Text.Encoding.CodePages.dll
+C:\Users\rsoderberg\Desktop\Online Studying\Projects\NewsArticleWebScraper\NewsArticleWebScraper\bin\Debug\AngleSharp.xml
+C:\Users\rsoderberg\Desktop\Online Studying\Projects\NewsArticleWebScraper\NewsArticleWebScraper\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\rsoderberg\Desktop\Online Studying\Projects\NewsArticleWebScraper\NewsArticleWebScraper\obj\Debug\NewsArticleWebScraper.csprojResolveAssemblyReference.cache
+C:\Users\rsoderberg\Desktop\Online Studying\Projects\NewsArticleWebScraper\NewsArticleWebScraper\obj\Debug\NewsArticleWebScraper.WebScraperForm.resources
+C:\Users\rsoderberg\Desktop\Online Studying\Projects\NewsArticleWebScraper\NewsArticleWebScraper\obj\Debug\NewsArticleWebScraper.Properties.Resources.resources
+C:\Users\rsoderberg\Desktop\Online Studying\Projects\NewsArticleWebScraper\NewsArticleWebScraper\obj\Debug\NewsArticleWebScraper.csproj.GenerateResource.Cache
+C:\Users\rsoderberg\Desktop\Online Studying\Projects\NewsArticleWebScraper\NewsArticleWebScraper\obj\Debug\NewsArticleWebScraper.exe
+C:\Users\rsoderberg\Desktop\Online Studying\Projects\NewsArticleWebScraper\NewsArticleWebScraper\obj\Debug\NewsArticleWebScraper.pdb
