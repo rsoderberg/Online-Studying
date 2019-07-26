@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,7 @@ namespace NewsArticleWebScraper
                 startButton.Text = "Stop";
 
                 Scraper scraper = new Scraper();
-                scraper.scrapeWebsite();
+                scraper.ScrapeWebsite();
             }
             else
             {
@@ -60,7 +61,10 @@ namespace NewsArticleWebScraper
                     resultsTextbox.Text = resultsTextbox.Text.Substring(0, 100000);
 
                 Scraper scraper = new Scraper();
-                scraper.scrapeWebsite();
+                scraper.ScrapeWebsite();
+
+                if (DateTime.Now.DayOfWeek == DayOfWeek.Monday && DateTime.Now.Hour == 7 && DateTime.Now.Minute == 00)
+                    scraper.PrintEmailWithLastWeeksResults();
 
                 _timeLeft = 5;
                 timerLabel.Text = Convert.ToString(_timeLeft);
