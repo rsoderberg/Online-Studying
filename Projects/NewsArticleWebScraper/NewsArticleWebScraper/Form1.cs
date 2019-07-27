@@ -33,7 +33,7 @@ namespace NewsArticleWebScraper
                 startButton.Text = "Stop";
 
                 Scraper scraper = new Scraper();
-                scraper.ScrapeWebsite();
+                scraper.ScrapeHackerRank();
             }
             else
             {
@@ -61,10 +61,11 @@ namespace NewsArticleWebScraper
                     resultsTextbox.Text = resultsTextbox.Text.Substring(0, 100000);
 
                 Scraper scraper = new Scraper();
-                scraper.ScrapeWebsite();
+                scraper.ScrapeHackerRank();
 
+                WeeklyEmail email = new WeeklyEmail();
                 if (DateTime.Now.DayOfWeek == DayOfWeek.Monday && DateTime.Now.Hour == 7 && DateTime.Now.Minute == 00)
-                    scraper.PrintEmailWithLastWeeksResults();
+                    email.PrintEmailWithLastWeeksResults();
 
                 _timeLeft = 5;
                 timerLabel.Text = Convert.ToString(_timeLeft);

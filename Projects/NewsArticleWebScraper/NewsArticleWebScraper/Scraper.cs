@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -7,26 +9,25 @@ using System.Threading;
 using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
 using AngleSharp.Html.Parser;
-using AngleSharp.Text;
 
 namespace NewsArticleWebScraper
 {
     class Scraper
     {
-        private string websiteUrl = "https://news.ycombinator.com/";
-
         private string[] queryTerms = {
             "Intro", "Tutorial", "Education", "Learn",
-            "C#", "Neural", "IoT", "Simulation",
+            "C#", "CSharp", "Neural", "IoT", "Simulation",
             "Green", "Animal", "Hagfish", "Nature",
-            "Communication"
+            "Communication", "Language", "Translation", "French", "Français"
         };
 
-        public async void ScrapeWebsite()
+        internal readonly NameValueCollection _appSettings = ConfigurationManager.AppSettings;
+
+        public async void ScrapeHackerRank()
         {
             CancellationTokenSource cancellationToken = new CancellationTokenSource();
             HttpClient httpClient = new HttpClient();
-            HttpResponseMessage request = await httpClient.GetAsync(websiteUrl);
+            HttpResponseMessage request = await httpClient.GetAsync(_appSettings["HackerRankUrl"]);
             cancellationToken.Token.ThrowIfCancellationRequested();
 
             Stream response = await request.Content.ReadAsStreamAsync();
@@ -35,6 +36,11 @@ namespace NewsArticleWebScraper
             HtmlParser parser = new HtmlParser();
             IHtmlDocument document = parser.ParseDocument(response);
 
+            GetScrapeResults(queryTerms, document);
+        }
+
+        private void GetScrapeResults(string[] queryTerms, IHtmlDocument document)
+        {
             IEnumerable<IElement> storyLink;
             foreach (var term in queryTerms)
             {
@@ -42,32 +48,11 @@ namespace NewsArticleWebScraper
 
                 if (storyLink.Any())
                 {
-                    PrintResultsToResultsTextbox(term, storyLink);
+                    Results results = new Results();
+                    results.PrintResultsToResultsTextbox(term, storyLink);
+                    //results.SaveResultsForWeeklyEmail(term, storyLink);
                 }
             }
-        }
-
-        private void PrintResultsToResultsTextbox(string term, IEnumerable<IElement> storyLink)
-        {
-            foreach (var result in storyLink)
-            {
-                string htmlResult = result.OuterHtml.ReplaceFirst("<a href=\"", "");
-                htmlResult = htmlResult.ReplaceFirst("\" class=\"storylink\">", "*");
-                htmlResult = htmlResult.ReplaceFirst("</a>", "");
-
-                string[] splitResults = htmlResult.Split('*');
-                string url = splitResults[0];
-                string title = splitResults[1];
-
-                WebScraperForm.ProcessMonitor.UpdateTextBox($"{title} - {url}{Environment.NewLine}");
-            }
-
-            WebScraperForm.ProcessMonitor.UpdateTextBox($"-----{term}-----");
-        }
-
-        internal void PrintEmailWithLastWeeksResults()
-        {
-            throw new NotImplementedException();
         }
     }
 }
